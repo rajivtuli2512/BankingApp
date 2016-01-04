@@ -13,6 +13,7 @@ namespace BankingApp.Controllers
         public BankingAppDB db = new BankingAppDB();
 
         //Account Summary method to show the Acccount Summary View after a successful Login
+        [HttpGet, OutputCache(NoStore = true, Duration = 1)]
         public ActionResult Index(String userid)
         {
             IEnumerable<AccountSummary> rows = db.AccountsSummary
@@ -26,12 +27,14 @@ namespace BankingApp.Controllers
 
         //method to fetch the user info like name, email address etc and show on the view.
         //not completed though as this was not the key point, asked in the test
+        [HttpGet, OutputCache(NoStore = true, Duration = 1)]
         public ActionResult AccountInfo(String userid)
         {
             return View();
         }
 
         //method responsible to show the accont statement/history.
+        [HttpGet, OutputCache(NoStore = true, Duration = 1)]
         public ActionResult Statement(String acct)
         {
             IEnumerable<Statement> statement_rows = db.Statements
@@ -42,6 +45,7 @@ namespace BankingApp.Controllers
         }
 
         //method to create the fund transfer page with drop down list of from and to account infomation.
+        [HttpGet, OutputCache(NoStore = true, Duration = 1)]
         public ActionResult FundTransfer(String userid)
         {
             ViewBag.fromAccount_List = new SelectList(db.customeraccounts.Where(o=>o.UserID==userid).ToList(), "Account", "Account");
@@ -52,7 +56,7 @@ namespace BankingApp.Controllers
 
         //post method to evaluate the data posted by fundtransfer view and update the database for both 
         //accounts to reflect the same in account statement.
-        [HttpPost]
+        [HttpPost, OutputCache(NoStore = true, Duration = 1)]
         public ActionResult FundTransfer(FundTransfer ft)
         {
             Statement s = new Statement();
@@ -83,6 +87,7 @@ namespace BankingApp.Controllers
 
         //method to fetch the current balance against an account. this is being used at the fund transfer screen
         //to show the available balance when selected a from account from drop down list.
+        [HttpGet, OutputCache(NoStore = true, Duration = 1)]
         public int getbalance(String account)
         {
             if (account == "")

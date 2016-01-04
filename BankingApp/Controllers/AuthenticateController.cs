@@ -14,7 +14,7 @@ namespace BankingApp.Controllers
         public object LicenseFile { get; private set; }
 
         //Very first Page to Load
-        [HttpGet]
+        [HttpGet, OutputCache(NoStore = true, Duration = 1)]
         public ActionResult Login()
         {
             ViewBag.SuccessLogin = false;
@@ -23,7 +23,7 @@ namespace BankingApp.Controllers
         }
         
         //Get the credentials and check against the DB
-        [HttpPost]
+        [HttpPost, OutputCache(NoStore = true, Duration = 1)]
         public ActionResult Login(Login loginmodel)
         {
             String userid=loginmodel.UserID;
@@ -45,6 +45,7 @@ namespace BankingApp.Controllers
                 return View();
             }
         }
+        [HttpGet, OutputCache(NoStore = true, Duration = 1)]
         //clear the user infomation and redirect to login page.
         public ActionResult Logout()
         {

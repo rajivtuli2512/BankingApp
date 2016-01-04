@@ -19,5 +19,6 @@ namespace BankingApp
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);            
         }
+
     }
 }
