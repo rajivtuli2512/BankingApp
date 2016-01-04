@@ -1,0 +1,34 @@
+﻿@*Partial view to show the fundtransfer screen when clicked on fund transfer under fund transfer tab.*@
+@model BankingApp.Models.FundTransfer
+<script src="~/Scripts/Site.js"></script>
+@using (Html.BeginForm("FundTransfer", "BankAccounts", FormMethod.Post, new { enctype = "multipart/form-data", onsubmit = "return validateForm()" }))
+{
+        @Html.HiddenFor(model=>model.UserID)
+
+    <table class="table-hover" id="t02">
+    <tr>
+        <td>@Html.LabelFor(model => model.FromAccount)</td>
+        <td>@Html.DropDownListFor(model => model.FromAccount, ViewBag.fromAccount_List as IEnumerable<SelectListItem>, "Select From Account", new { @onchange = "getAccountBalance(this.value)" })</td>
+        @Html.ValidationMessageFor(model => model.FromAccount)
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(model => model.ToAccount)</td>
+        <td>@Html.DropDownListFor(model => model.ToAccount, ViewBag.toAccount_List as IEnumerable<SelectListItem>, "Select To Account")</td>
+        @Html.ValidationMessageFor(model => model.ToAccount)
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(model => model.AvailableBalance)</td> 
+        <td><div id="acnt-bal"></div></td>           
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(model => model.Amount)</td>
+        <td>@Html.TextBoxFor(model => model.Amount)</td>
+        @Html.ValidationMessageFor(model => model.Amount)
+    </tr>
+</table>
+
+<div id="BalanceValidMessage" style="color:red;margin-left:50px;margin-top:20px"></div>
+<div style="margin-left:50px;margin-top:20px;">
+<input type="submit" value="Confirm" class="btn btn-default"/>
+</div>
+}

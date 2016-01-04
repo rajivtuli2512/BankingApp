@@ -1,0 +1,47 @@
+﻿@model BankingApp.Models.Login
+
+@*very first view to show when application loads.*@
+
+@{
+    ViewBag.Title = "Login";
+    var SuccessLogin = ViewBag.SuccessLogin;
+}
+
+
+<h2>Welcome to XYZ Bank</h2>
+<h3>Please Login to access your account(s)</h3>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Authenticate", FormMethod.Post))
+            { 
+                    <div class="form-group">
+                        @Html.LabelFor(o => o.UserID)
+                        <div class="col-md-20">
+                        @Html.TextBoxFor(o => o.UserID)
+                        @Html.ValidationMessageFor(o => o.UserID)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(o => o.Password)
+                        <div class="col-md-20">
+                        @Html.PasswordFor(o=>o.Password)
+                        <!--@Html.TextBoxFor(o => o.Password)-->
+                        @Html.ValidationMessageFor(o => o.Password)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-0 col-md-20">
+                        <input type="submit" value="login" class="btn btn-default" />
+                        </div>
+                    </div>
+                    if(SuccessLogin)
+                    {
+                        <div class="col-lg-10">Login Failed. Please try again.</div>
+                    }
+
+             }
+        </section>
+</div>
+</div>

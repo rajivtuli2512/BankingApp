@@ -1,0 +1,41 @@
+﻿@*View to show the account summary of a account. this will be visible when a user will click on the 
+avaialable balance at Account summary page under my accounts tab*@
+@model BankingApp.Models.Statement
+    @{ 
+        IEnumerable<BankingApp.Models.Statement> st = (IEnumerable<BankingApp.Models.Statement>)ViewBag.statement_rows;
+    }
+<link rel="stylesheet" type="text/css" href="main.css">
+<div class="tbcls">    
+    <table class="table-hover">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Account No</th>
+                <th>Transaction ID</th>
+                <th>Remarks</th>
+                <th>Credit</th>
+                <th>Debit</th>
+                <th>Balance</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        @{
+            var Counter = 1;
+            foreach (var e in st)
+            {
+                <tr>
+                    <td>@Counter</td>
+                    <td>@e.Account</td>
+                    <td>@e.tran_id</td>
+                    <td>@e.comment</td>
+                    <td>@e.Credit</td>
+                    <td>@e.Debit</td>
+                    <td>@e.Balance</td>
+                    <td>@e.Updatedat</td>
+                </tr>
+                Counter = Counter + 1;
+            }
+        }
+    </table>
+</div>
+

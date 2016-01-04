@@ -1,0 +1,27 @@
+﻿@*Account Summary page of a user*@
+@model BankingApp.Models.AccountSummary
+@{
+    IEnumerable<BankingApp.Models.AccountSummary> cu = (IEnumerable<BankingApp.Models.AccountSummary>)ViewBag.curows;
+}
+
+<link rel="stylesheet" type="text/css" href="main.css">
+<div class="tbcls">
+    Welcome Mr. @ViewBag.CustomerName
+    <table class="table-hover" id="t01">
+        <thead>
+            <tr>
+                <th>Account Number</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        @{
+            foreach (var e in cu)
+            {
+                <tr>
+                    <td>@Html.ActionLink(e.Account, "AccountInfo", "BankAccounts",new { userid = e.UserID},null)</td>                    
+                    <td>@Html.ActionLink(e.Balance.ToString(), "Statement", "BankAccounts", new { acct = e.Account },null)</td>
+                </tr>
+            }
+        }
+    </table>
+</div>

@@ -1,0 +1,59 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;        
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.tbcls {
+    margin-top: 10%;
+    margin-left: 10%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 {
+    width: 70%;    
+    background-color:gainsboro;
+}
+.actionbtn
+{
+    background-color:grey;
+    color:white;
+    width:10%;
+    display:block;
+    text-align:center;
+    padding:10px 0;
+    text-decoration:none;
+    font-style:normal;
+    border-radius:10px;
+    float:left; 
+    margin-top:10px;
+    margin-left:120px;   
+}
+
+table#t02 {
+    width: 30%;    
+    background-color:gainsboro;
+    margin-top:50px;
+    margin-left:50px;   
+}
+
+
+
