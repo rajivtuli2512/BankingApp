@@ -1,2 +1,35 @@
 ﻿@model BankingApp.Models.Customer_Detail
-<h1>Account Info View</h1>
+<br /><br /><br /><br /><br />
+
+<table class="table-hover" id="t01" style="margin-left:5%">
+    <thead>
+        <tr>
+        <th>Description</th>
+        <th>Value</th>
+        </tr>
+    </thead>
+        <tr>
+            <td>Account Number</td>
+            <td>@ViewBag.Account</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@ViewBag.userinfo.Name</td>
+        </tr>
+        <tr>
+            <td>Email Address</td>
+            <td>@ViewBag.userinfo.Email</td>
+        </tr>
+        <tr>
+            <td>Postal Address</td>
+            <td>@ViewBag.userinfo.Address</td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td>@ViewBag.userinfo.phonenumber</td>
+        </tr>
+</table>
+
+
+
+

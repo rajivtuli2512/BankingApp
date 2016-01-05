@@ -18,7 +18,7 @@
             foreach (var e in cu)
             {
                 <tr>
-                    <td>@Html.ActionLink(e.Account, "AccountInfo", "BankAccounts",new { userid = e.UserID},null)</td>                    
+                    <td>@Html.ActionLink(e.Account, "AccountInfo", "BankAccounts",new { userid = e.UserID,account=e.Account},null)</td>                    
                     <td>@Html.ActionLink(e.Balance.ToString(), "Statement", "BankAccounts", new { acct = e.Account },null)</td>
                 </tr>
             }

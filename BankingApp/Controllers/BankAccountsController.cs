@@ -28,8 +28,10 @@ namespace BankingApp.Controllers
         //method to fetch the user info like name, email address etc and show on the view.
         //not completed though as this was not the key point, asked in the test
         [HttpGet, OutputCache(NoStore = true, Duration = 1)]
-        public ActionResult AccountInfo(String userid)
+        public ActionResult AccountInfo(String userid,String account)
         {
+            ViewBag.userinfo = db.Customer_Detail.Where(o => o.UserID == userid).FirstOrDefault();
+            ViewBag.Account = account;
             return View();
         }
 

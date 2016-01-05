@@ -16,5 +16,11 @@ namespace BankingApp.Models
 
         [DisplayName("Email")]
         public String Email { get; set; }
+
+        public String Address { get; set; }
+
+        [DisplayName("Contact Number")]
+        public String phonenumber { get; set; }
+
     }
 }

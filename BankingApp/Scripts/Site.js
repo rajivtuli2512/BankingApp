@@ -12,19 +12,25 @@
     }
     if (T_Account == "")
     {
-        document.getElementById("BalanceValidMessage").innerHTML = document.getElementById("BalanceValidMessage").innerHTML+"<br>Please select From Account";
+        document.getElementById("BalanceValidMessage").innerHTML = "Please select From Account";
         flag = false;
     }
 
     if (flag)
     {
         if (parseInt(amnt, 10) > parseInt(avalbal,10)) {
-            document.getElementById("BalanceValidMessage").innerHTML = "<br>Insufficient Balance.";
+            document.getElementById("BalanceValidMessage").innerHTML = "Insufficient Balance.";
             flag = false;
         }
 
+        if (parseInt(amnt, 10) <50) {
+            document.getElementById("BalanceValidMessage").innerHTML = "Minimum transferable amount is 50";
+            flag = false;
+        }
+
+
         if (F_account == T_Account) {
-            document.getElementById("BalanceValidMessage").innerHTML = document.getElementById("BalanceValidMessage").innerHTML + "<br>From and To Account can not be same.";
+            document.getElementById("BalanceValidMessage").innerHTML = "From and To Account can not be same.";
             flag = false;
         }
     }
