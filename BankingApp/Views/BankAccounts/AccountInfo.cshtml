@@ -1,13 +1,13 @@
 ﻿@model BankingApp.Models.Customer_Detail
 <br /><br /><br /><br /><br />
-
-<table class="table-hover" id="t01" style="margin-left:5%">
-    <thead>
-        <tr>
-        <th>Description</th>
-        <th>Value</th>
-        </tr>
-    </thead>
+<div class="tbcls">
+    <table class="table-hover" id="t01">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Value</th>
+            </tr>
+        </thead>
         <tr>
             <td>Account Number</td>
             <td>@ViewBag.Account</td>
@@ -28,7 +28,8 @@
             <td>Phone Number</td>
             <td>@ViewBag.userinfo.phonenumber</td>
         </tr>
-</table>
+    </table>
+</div>
 
 
 
